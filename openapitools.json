@@ -1,0 +1,10 @@
+{
+    "$schema": "node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+    "name": "minty",
+    "spaces": 2,
+    "relDir": "docs",
+    "base": "minty.yaml",
+    "generator-cli": {
+        "version": "5.3.0"
+    }
+}

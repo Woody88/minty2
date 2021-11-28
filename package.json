@@ -1,0 +1,39 @@
+{
+    "name": "minty",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "prepare": "husky install",
+        "start": "pnpm ts-node src/main.ts",
+        "docs:validate": "pnpm openapi-generator-cli validate -i docs/minty.yaml",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@openapitools/openapi-generator-cli": "^2.4.18",
+        "@types/node": "^16.11.10",
+        "@typescript-eslint/eslint-plugin": "^5.4.0",
+        "@typescript-eslint/parser": "^5.4.0",
+        "eslint": "^8.3.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-fp-ts": "^0.3.0",
+        "husky": "^7.0.4",
+        "lint-staged": "^12.1.2",
+        "prettier": "2.5.0",
+        "ts-node": "^10.4.0",
+        "typescript": "^4.5.2"
+    },
+    "dependencies": {
+        "fastify": "^3.24.0",
+        "fastify-openapi-glue": "^2.6.5",
+        "fp-ts": "^2.11.5",
+        "fp-ts-contrib": "^0.1.26",
+        "io-ts": "^2.2.16"
+    },
+    "lint-staged": {
+        "**/*": "prettier --write --ignore-unknown"
+    }
+}
