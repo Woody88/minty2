@@ -1,0 +1,18 @@
+stype: object
+required:
+    - id
+    - active
+    - username
+properties:
+    id:
+        type: string
+    active:
+        type: boolean
+
+    username:
+        type: string
+        format: email
+
+    password:
+        type: string
+        format: password

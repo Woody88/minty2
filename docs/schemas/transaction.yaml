@@ -1,0 +1,39 @@
+type: object
+required:
+    - accountId
+    - merchant
+    - transaction_type
+    - payment_type
+    - amount
+    - category
+    - date
+    - tags
+    - notes
+properties:
+    accountId:
+        type: string
+        format: uuid
+    merchant:
+        type: string
+    transaction_type:
+        type: string
+        enum: [INCOME, EXPENSE]
+    payment_type:
+        type: string
+        enum: [CASH, CHECK, DEBIT/CREDIT]
+    amount:
+        type: number
+        format: decimal
+        precision: 2
+        minimum: 0
+    category:
+        type: string
+    date:
+        type: string
+        format: date-time
+    tags:
+        type: array
+        items:
+            type: string
+    notes:
+        type: string

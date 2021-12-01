@@ -1,0 +1,51 @@
+post:
+    tags:
+        - Transactions
+    summary: Create a new transaction
+    operationId: addTransaction
+    parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+              type: string
+              format: uuid
+          description: Account Id
+
+    requestBody:
+        description: Transaction data
+        required: true
+        content:
+            application/json:
+                schema:
+                    $ref: ../../schemas/transaction.yaml
+
+    responses:
+        '200':
+            description: OK
+            content:
+                application/json:
+                    schema:
+                        description: Transaction Id
+                        type: string
+                        format: uuid
+
+get:
+    tags:
+        - Transactions
+    summary: Get account's transactions
+    operationId: getAllTransaction
+    parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+              type: string
+              format: uuid
+    responses:
+        '200':
+            description: OK
+            content:
+                application/json:
+                    schema:
+                        $ref: ../../schemas/transactions.yaml
