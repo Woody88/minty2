@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
     '@openapitools/openapi-generator-cli': ^2.4.18
     '@types/node': ^16.11.10
+    '@types/uuid': ^8.3.3
     '@typescript-eslint/eslint-plugin': ^5.4.0
     '@typescript-eslint/parser': ^5.4.0
     eslint: ^8.3.0
@@ -18,6 +19,7 @@ specifiers:
     prettier: 2.5.0
     ts-node: ^10.4.0
     typescript: ^4.5.2
+    uuid: ^8.3.2
 
 dependencies:
     fastify: 3.24.0
@@ -25,10 +27,12 @@ dependencies:
     fp-ts: 2.11.5
     fp-ts-contrib: 0.1.26_fp-ts@2.11.5
     io-ts: 2.2.16_fp-ts@2.11.5
+    uuid: 8.3.2
 
 devDependencies:
     '@openapitools/openapi-generator-cli': 2.4.18
     '@types/node': 16.11.10
+    '@types/uuid': 8.3.3
     '@typescript-eslint/eslint-plugin': 5.4.0_5c8ff4cecd5a55e744866c0654edac32
     '@typescript-eslint/parser': 5.4.0_eslint@8.3.0+typescript@4.5.2
     eslint: 8.3.0
@@ -300,6 +304,13 @@ packages:
         resolution:
             {
                 integrity: sha512-3aRnHa1KlOEEhJ6+CvyHKK5vE9BcLGjtUpwvqYLRvYNQKMfabu3BwfJaA/SLW8dxe28LsNDjtHwePTuzn3gmOA==,
+            }
+        dev: true
+
+    /@types/uuid/8.3.3:
+        resolution:
+            {
+                integrity: sha512-0LbEEx1zxrYB3pgpd1M5lEhLcXjKJnYghvhTRgaBeUivLHMDM1TzF3IJ6hXU2+8uA4Xz+5BA63mtZo5DjVT8iA==,
             }
         dev: true
 
@@ -2871,7 +2882,6 @@ packages:
                 integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==,
             }
         hasBin: true
-        dev: true
 
     /v8-compile-cache/2.3.0:
         resolution:
