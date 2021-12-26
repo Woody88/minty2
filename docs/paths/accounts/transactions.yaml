@@ -43,7 +43,7 @@ get:
               type: string
               format: uuid
     responses:
-        '200':
+        '201':
             description: OK
             content:
                 application/json:

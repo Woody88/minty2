@@ -18,7 +18,7 @@ interface AmountBrand {
 
 const Amount = t.brand(
     t.number,
-    (n): n is t.Branded<number, AmountBrand> => n > 0,
+    (n): n is t.Branded<number, AmountBrand> => n >= 0,
     'Amount'
 )
 

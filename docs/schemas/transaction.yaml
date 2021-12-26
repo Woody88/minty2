@@ -24,7 +24,6 @@ properties:
     amount:
         type: number
         format: decimal
-        precision: 2
         minimum: 0
     category:
         type: string

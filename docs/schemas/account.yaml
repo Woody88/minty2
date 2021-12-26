@@ -1,4 +1,4 @@
-stype: object
+type: object
 required:
     - id
     - active
