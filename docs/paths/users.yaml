@@ -1,0 +1,42 @@
+post:
+  tags:
+    - Users
+  summary: Create a user
+  operationId: createUser
+  requestBody:
+    description: 'New User Details'
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/user.yaml
+  responses:
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: string
+            format: uuid
+
+get:
+  tags:
+    - Users
+  summary: Get user info
+  operationId: getUserInfo
+  parameters:
+    - name: userId
+      in: path
+      required: true
+      description: 'User Id'
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/user.yaml

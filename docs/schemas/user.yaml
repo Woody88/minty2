@@ -1,0 +1,22 @@
+type: object
+required:
+  - firstName
+  - lastName
+  - username
+properties:
+  first_name:
+    type: string
+
+  last_name:
+    type: string
+
+  username:
+    type: string
+    format: email
+
+  password:
+    type: string
+    format: password
+
+  phone_number:
+    type: string

@@ -9,6 +9,8 @@ servers:
   - url: http://localhost:8000
     description: Local developement server
 paths:
+  /users:
+    $ref: ./paths/users.yaml
   /accounts:
     $ref: ./paths/accounts.yaml
   /accounts/{accountId}/transactions:
@@ -18,6 +20,8 @@ paths:
 
 components:
   schemas:
+    User:
+      $ref: ./schemas/user.yaml
     Account:
       $ref: ./schemas/account.yaml
     AccountBody:
