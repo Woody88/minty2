@@ -3,7 +3,10 @@ import { FastifyOpenapiGlueOptions } from 'fastify-openapi-glue'
 import { task } from 'fp-ts'
 import { Do } from 'fp-ts-contrib/lib/Do'
 import { App } from '../../../application-dependency/type'
-import { getAllTransactionHandler } from '../transaction.handler'
+import {
+    addTransactionHandler,
+    getAllTransactionHandler,
+} from '../transaction.handler'
 
 export const openApiRouteMiddlewareOpts = (
     P: App<task.URI>
@@ -13,6 +16,7 @@ export const openApiRouteMiddlewareOpts = (
         noAdditional: true,
         service: {
             getAllTransaction: runHandler(getAllTransactionHandler)(P),
+            addTransaction: runHandler(addTransactionHandler)(P),
         },
     }))
 
@@ -20,7 +24,8 @@ const runHandler =
     (
         handler: (
             P: App<task.URI>
-        ) => (req: FastifyRequest, reply: FastifyReply) => task.Task<void>
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ) => (req: any, reply: FastifyReply) => task.Task<void>
     ) =>
     (P: App<task.URI>) =>
     (req: FastifyRequest, reply: FastifyReply) => {

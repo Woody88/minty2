@@ -5,6 +5,6 @@ import { App } from './type'
 
 export const application: App<task.URI> = {
     ...task.MonadTask,
-    ...transactionRepoIntepreter,
-    ...traceInterpreter,
+    ...transactionRepoIntepreter(),
+    ...traceInterpreter(),
 }
