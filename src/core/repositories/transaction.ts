@@ -1,12 +1,20 @@
 import { Kind, URIS } from 'fp-ts/HKT'
-import { Option } from 'fp-ts/Option'
+import { Either } from 'fp-ts/Either'
 import { AccountId } from '../../domain/account'
 import { Transaction, TransactionId } from '../../domain/transaction'
 
+export type TransactionException = string
+
 export interface TransactionRepository<F extends URIS> {
-    add: (transaction: Transaction) => Kind<F, void>
+  readonly add: (
+    transaction: Transaction
+  ) => Kind<F, Either<TransactionException, void>>
 
-    lookup: (transactionId: TransactionId) => Kind<F, Option<Transaction>>
+  readonly lookup: (
+    transactionId: TransactionId
+  ) => Kind<F, Either<TransactionException, Transaction>>
 
-    all: (accountId: AccountId) => Kind<F, Transaction[]>
+  readonly all: (
+    accountId: AccountId
+  ) => Kind<F, Either<TransactionException, Transaction[]>>
 }
