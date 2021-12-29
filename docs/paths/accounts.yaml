@@ -1,0 +1,42 @@
+post:
+  tags:
+    - Accounts
+  summary: Create a account
+  operationId: createAccount
+  requestBody:
+    description: 'New Account Details'
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/account-body.yaml
+  responses:
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: string
+            format: uuid
+
+get:
+  tags:
+    - Accounts
+  summary: Get's account info
+  operationId: getAccountInfo
+  parameters:
+    - name: accountId
+      in: path
+      required: true
+      description: 'Account Id'
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/account.yaml

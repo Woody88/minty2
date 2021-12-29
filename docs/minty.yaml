@@ -1,26 +1,30 @@
 openapi: 3.0.0
 info:
-    version: 1.0.0
-    title: Minty Budget Tracker & Planner
-    description: Budget managment app that brings together all of your finances.
-    license:
-        name: MIT
+  version: 1.0.0
+  title: Minty Budget Tracker & Planner
+  description: Budget managment app that brings together all of your finances.
+  license:
+    name: MIT
 servers:
-    - url: http://localhost:8000
-      description: Local developement server
+  - url: http://localhost:8000
+    description: Local developement server
 paths:
-    /accounts/{accountId}/transactions:
-        $ref: ./paths/accounts/transactions.yaml
-    /accounts/{accountId}/transactions/{transactionId}:
-        $ref: ./paths/accounts/transactions/{transactionId}.yaml
+  /accounts:
+    $ref: ./paths/accounts.yaml
+  /accounts/{accountId}/transactions:
+    $ref: ./paths/accounts/transactions.yaml
+  /accounts/{accountId}/transactions/{transactionId}:
+    $ref: ./paths/accounts/transactions/{transactionId}.yaml
 
 components:
-    schemas:
-        Account:
-            $ref: ./schemas/account.yaml
-        Transaction:
-            $ref: ./schemas/transaction.yaml
-        Transactions:
-            $ref: ./schemas/transactions.yaml
-        Error:
-            $ref: ./schemas/error.yaml
+  schemas:
+    Account:
+      $ref: ./schemas/account.yaml
+    AccountBody:
+      $ref: ./schemas/account-body.yaml
+    Transaction:
+      $ref: ./schemas/transaction.yaml
+    Transactions:
+      $ref: ./schemas/transactions.yaml
+    Error:
+      $ref: ./schemas/error.yaml
