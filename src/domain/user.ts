@@ -11,13 +11,16 @@ const UserOptions = t.partial({ phone_number: t.string })
 
 const UserPassword = t.type({ password: t.string })
 
-export const UserId = t.type({ userId: IdBrand })
+const UserId = t.type({ userId: IdBrand })
 
-export const NewUser = t.intersection([UserProps, UserOptions, UserPassword])
+export const UserRegistration = t.intersection([
+  UserProps,
+  UserOptions,
+  UserPassword,
+])
 
 export const User = t.intersection([UserProps, UserOptions, UserId])
 
 export type UserId = Id
-
-export type NewUser = t.TypeOf<typeof NewUser>
+export type UserRegistration = t.TypeOf<typeof UserRegistration>
 export type User = t.TypeOf<typeof User>
