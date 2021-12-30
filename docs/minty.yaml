@@ -11,6 +11,8 @@ servers:
 paths:
   /users:
     $ref: ./paths/users.yaml
+  /users/{userId}:
+    $ref: ./paths/users/{userId}.yaml
   /accounts:
     $ref: ./paths/accounts.yaml
   /accounts/{accountId}/transactions:
