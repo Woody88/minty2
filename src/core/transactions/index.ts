@@ -1,6 +1,5 @@
 import { Do } from 'fp-ts-contrib/lib/Do'
 import { URIS } from 'fp-ts/HKT'
-import { constVoid } from 'fp-ts/function'
 import { Monad1 } from 'fp-ts/Monad'
 import { AccountId } from '../../domain/account'
 import { Transaction } from '../../domain/transaction'
