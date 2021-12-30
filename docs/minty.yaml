@@ -22,6 +22,8 @@ components:
   schemas:
     User:
       $ref: ./schemas/user.yaml
+    UserBody:
+      $ref: ./schemas/user-body.yaml
     Account:
       $ref: ./schemas/account.yaml
     AccountBody:
