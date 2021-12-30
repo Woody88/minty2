@@ -2,10 +2,11 @@ import { FastifyReply, FastifyRequest } from 'fastify'
 import { URIS } from 'fp-ts/HKT'
 import { Transaction } from '../../../domain/transaction'
 import { Do } from 'fp-ts-contrib/lib/Do'
-import { addTransaction, getAllTransactions } from '../../../core/transactions'
-import { TransactionRepository } from '../../../core/repositories/transaction'
-import { Trace } from '../../../core/trace'
-import { Monad1 } from 'fp-ts/Monad'
+import {
+  addTransaction,
+  getAllTransactions,
+  TransactionService,
+} from '../../../core/transactions'
 import { AccountId } from '../../../domain/account'
 import { either } from 'fp-ts'
 import { pipe, constVoid } from 'fp-ts/function'
@@ -15,10 +16,10 @@ type IAddTransactionReq = FastifyRequest<{
 }>
 
 export const addTransactionHandler =
-  <F extends URIS>(C: TransactionRepository<F> & Trace<F> & Monad1<F>) =>
+  <F extends URIS>(S: TransactionService<F>) =>
   (req: IAddTransactionReq, reply: FastifyReply) => {
-    return Do(C)
-      .bind('result', addTransaction(C)(req.body))
+    return Do(S)
+      .bind('result', addTransaction(S)(req.body))
       .return(({ result }) =>
         pipe(
           result,
@@ -34,11 +35,12 @@ export const addTransactionHandler =
 type IAllTransactionReq = FastifyRequest<{
   Params: { accountId: AccountId }
 }>
+
 export const getAllTransactionHandler =
-  <F extends URIS>(C: TransactionRepository<F> & Trace<F> & Monad1<F>) =>
+  <F extends URIS>(S: TransactionService<F>) =>
   (req: IAllTransactionReq, reply: FastifyReply) => {
-    return Do(C)
-      .bind('eTransactions', getAllTransactions(C)(req.params.accountId))
+    return Do(S)
+      .bind('eTransactions', getAllTransactions(S)(req.params.accountId))
       .return(({ eTransactions }) =>
         pipe(
           eTransactions,
